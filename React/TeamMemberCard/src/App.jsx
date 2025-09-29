@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { TeamMembers } from "./TeamMember";
+import { TeamMember } from "./TeamMember";
 
 function App() {
   const team = [
@@ -16,7 +16,7 @@ function App() {
       <h1>Our Team</h1>
       <div className="team-cards">
         {team.map((u) => (
-          <TeamMembers name={u.name} age={u.age} pet={u.pet} />
+          <TeamMember name={u.name} age={u.age} pet={u.pet} />
         ))}
       </div>
     </div>

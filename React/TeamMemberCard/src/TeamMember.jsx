@@ -1,6 +1,6 @@
 import "./App.css";
 
-export function TeamMembers(props) {
+export function TeamMember(props) {
   return (
     <div className="team-member-container">
       <p>Hello my name is {props.name}</p>
