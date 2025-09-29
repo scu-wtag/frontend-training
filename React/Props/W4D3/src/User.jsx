@@ -1,6 +1,7 @@
 export default function User(props) {
   return (
-    <div>
+      <div
+      >
       <p>Name: {props.name}</p>
       <p>Age: {props.age}</p>
       <p>Hobby: {props.hobby}</p>
