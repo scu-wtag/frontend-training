@@ -1,4 +1,30 @@
-.box{
-  border: 3px solid;
-  padding: 25px;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

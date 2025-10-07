@@ -1,0 +1,35 @@
+.section {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1);
+}
+
+.meta p:first-child {
+  font-size: 60px;
+  padding: 3rem;
+  color: var(--muted);
+}
+
+.meta p:last-child {
+  font-size: 18px;
+}
+
+.bubble {
+  background: var(--primary);
+  color: #b9e599;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  font-size: 42px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 30px rgba(138, 201, 38, 0.35);
+}

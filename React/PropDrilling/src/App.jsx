@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import ComponentA from './ComponentA'
-import './App.css'
+import React from "react";
+import { ThemeProvider } from "./ThemeContext";
+import ThemeButton from "./ThemeButton";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <ComponentA />
-  )
+    <ThemeProvider>
+      <h1>Hello World</h1>
+      <ThemeButton />
+    </ThemeProvider>
+  );
 }
-
-export default App

@@ -1,3 +1,6 @@
+import React from "react";
+import styles from "./Form.module.css";
+
 export default function Form({ setTodos }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +16,16 @@ export default function Form({ setTodos }) {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <label htmlFor="todo">
-        <input name="todo" id="todo" placeholder="Write your next task" />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <label className={styles.label} htmlFor="todo">
+        <input
+          className={styles.input}
+          name="todo"
+          id="todo"
+          placeholder="Write your next task"
+        />
       </label>
-      <button type="submit">Add</button>
+      <button className={styles.button} type="submit">Add</button>
     </form>
   );
 }

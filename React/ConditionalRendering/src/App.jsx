@@ -1,15 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import UserGreeting from './UserGreeting'
+import React from 'react';
+import DataFetcher from './DataFetcher.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <UserGreeting isLoggedIn={false} username="Sophia"/>
-  )
+    <div>
+      <h1>Conditional Rendering Demo</h1>
+      <DataFetcher />
+    </div>
+  );
 }
-
-export default App
