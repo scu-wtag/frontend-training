@@ -16,7 +16,7 @@ export default function StepTwo({
     <div className={styles.box}>
       <h2>Step 2</h2>
       <h4>
-        Hello {name || "👋"}, Please enter your age.
+        Hello {name}, Please enter your age.
       </h4>
 
       <input
