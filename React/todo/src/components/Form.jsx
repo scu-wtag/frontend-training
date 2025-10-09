@@ -22,7 +22,7 @@ export default function Form({ setTodos }) {
           className={styles.input}
           name="todo"
           id="todo"
-          placeholder="Write your next task"
+          placeholder="Write your next "
         />
       </label>
       <button className={styles.button} type="submit">Add</button>
