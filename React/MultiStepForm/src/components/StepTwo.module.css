@@ -1,0 +1,65 @@
+.box {
+  border: 1px solid #e3e3e3;
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 520px;
+  margin: 24px auto;
+  background: #fff;
+}
+
+.field {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  font-size: 16px;
+}
+
+.actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.back,
+.next {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.back {
+  background: #545454;
+}
+
+.next {
+  background: #222;
+  color: white;
+}
+
+.next[disabled],
+.next[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dots {
+  margin-top: 16px;
+}
+
+.step,
+.stepActive {
+  height: 10px;
+  width: 10px;
+  margin: 0 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.4;
+}
+
+.stepActive {
+  opacity: 1;
+}
