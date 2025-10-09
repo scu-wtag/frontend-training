@@ -12,7 +12,7 @@ export default function Form({ setTodos }) {
 
     setTodos(prev => [
       ...prev,
-      { id: crypto.randomUUID(), title: value, is_completed: false }
+      { id: crypto.randomUUID(), title: value, isCompleted: false }
     ]);
 
     e.target.reset();
