@@ -12,7 +12,7 @@ function Item({ item, setTodos }) {
   };
 
   const deleteTodo = () => {
-    setTodos(prev => prev.filter(t => t.id !== item.id));
+    setTodos(prev => prev.filter(todo => todo.id !== item.id));
   };
 
   const startEdit = () => setEditing(true);
