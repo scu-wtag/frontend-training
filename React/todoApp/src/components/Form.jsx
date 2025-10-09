@@ -5,7 +5,10 @@ export default function Form({ setTodos }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const value = e.target.todo.value.trim();
-    if (!value) return;
+    
+    if (!value) {
+      return
+    };
 
     setTodos(prev => [
       ...prev,
