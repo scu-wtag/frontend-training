@@ -20,7 +20,9 @@ function Item({ item, setTodos }) {
   React.useEffect(() => {
     if (editing && inputRef.current) {
       inputRef.current.focus();
+      
       const len = inputRef.current.value.length;
+      
       inputRef.current.setSelectionRange(len, len);
     }
   }, [editing]);
