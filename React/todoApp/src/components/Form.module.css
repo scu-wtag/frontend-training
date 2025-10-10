@@ -29,7 +29,7 @@
 
 .input:focus {
   outline: none;
-  border-color: var(--focus);
+  border-color: var(--primary-focus);
   box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.15);
   background: #171c25;
 }
@@ -38,7 +38,7 @@
   height: 50px;
   padding: 0 20px;
   border: none;
-  border-radius: var(--r-md);
+  border-radius: var(--radius-md);
   font-weight: 700;
   background: linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);
   color: #a5de7d;

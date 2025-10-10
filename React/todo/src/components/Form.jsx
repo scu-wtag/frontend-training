@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Form.module.css";
 
 export default function Form({ setTodos }) {
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const value = e.target.todo.value.trim();
     if (!value) return;
 
