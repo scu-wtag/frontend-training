@@ -15,21 +15,21 @@ body,
 :root {
   /* Color tokens */
   --bg: #0e0f12;
-  --primary-bg: #161a22;
+  --panel: #161a22;
   --panel-2: #1f2633;
-  --primary-text: #f5f7fb;
+  --text: #f5f7fb;
   --muted: #a7b0c0;
   --primary: #8ac926;
   --primary-700: #6ea41f;
   --primary-800: #5b8b1b;
-  --primary-border-color: #2a3242;
+  --border: #2a3242;
   --danger: #ff6b6b;
-  --primary-focus: #7aa2ff;
+  --focus: #7aa2ff;
 
   /* Radii & sizing */
   --r-xs: 6px;
   --r-sm: 10px;
-  --radius-md: 12px;
+  --r-md: 12px;
   --r-lg: 16px;
 
   --shadow-1: 0 6px 20px rgba(0, 0, 0, 0.25);
