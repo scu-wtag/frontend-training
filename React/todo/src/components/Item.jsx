@@ -52,13 +52,20 @@ function Item({ item, setTodos }) {
   }
 
   React.useEffect(() => {
-    if (!editing) return;
+    if (!editing) {
+      return
+    };
 
     const el = inputRef.current;
-    if (!el) return;
+    
+    if (!el){
+      return
+    };
 
     el.focus();
+    
     const len = el.value.length;
+    
     el.setSelectionRange(len, len);
   }, [editing]);
 
