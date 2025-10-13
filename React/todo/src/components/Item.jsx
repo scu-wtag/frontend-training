@@ -8,7 +8,10 @@ function Item({ item, setTodos }) {
   function updateTodoById(id, updater) {
     setTodos(prev => {
       return prev.map(todo => {
-        if (todo.id !== id) return todo;
+        if (todo.id !== id) {
+          return todo
+        };
+        
         return updater(todo);
       });
     });
