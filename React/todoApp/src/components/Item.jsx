@@ -29,6 +29,7 @@ function Item({ item, setTodos }) {
 
   const handleEditChange = (e) => {
     const text = e.target.value;
+    
     setTodos(prev => prev.map(t => (t.id === item.id ? { ...t, title: text } : t)));
   };
 
