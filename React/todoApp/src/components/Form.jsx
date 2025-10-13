@@ -2,16 +2,17 @@ import React from "react";
 import styles from "./Form.module.css";
 
 export default function Form({ setTodos }) {
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     const value = e.target.todo.value.trim();
-    if (!value) return;
+    
+    if (!value) {
+      return
+    };
 
     setTodos(prev => [
       ...prev,
-      { id: crypto.randomUUID(), title: value, is_completed: false }
+      { id: crypto.randomUUID(), title: value, isCompleted: false }
     ]);
 
     e.target.reset();

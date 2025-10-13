@@ -5,37 +5,69 @@ function Item({ item, setTodos }) {
   const [editing, setEditing] = React.useState(false);
   const inputRef = React.useRef(null);
 
-  const toggleComplete = () => {
-    setTodos(prev =>
-      prev.map(t => (t.id === item.id ? { ...t, is_completed: !t.is_completed } : t))
-    );
-  };
+  function updateTodoById(id, updater) {
+    setTodos(prev => {
+      return prev.map(todo => {
+        if (todo.id !== id) {
+          return todo
+        };
+        
+        return updater(todo);
+      });
+    });
+  }
 
-  const deleteTodo = () => {
-    setTodos(prev => prev.filter(t => t.id !== item.id));
-  };
+  function toggleComplete() {
+    updateTodoById(item.id, todo => ({
+      ...todo,
+      isCompleted: !todo.isCompleted,
+    }));
+  }
 
-  const startEdit = () => setEditing(true);
+  function deleteTodo() {
+    setTodos(prev => {
+      return prev.filter(todo => todo.id !== item.id);
+    });
+  }
 
-  React.useEffect(() => {
-    if (editing && inputRef.current) {
-      inputRef.current.focus();
-      const len = inputRef.current.value.length;
-      inputRef.current.setSelectionRange(len, len);
-    }
-  }, [editing]);
+  function startEdit() {
+    setEditing(true);
+  }
 
-  const handleEditChange = (e) => {
-    const text = e.target.value;
-    setTodos(prev => prev.map(t => (t.id === item.id ? { ...t, title: text } : t)));
-  };
+  function finishEdit() {
+    setEditing(false);
+  }
 
-  const finishEdit = () => setEditing(false);
+  function handleEditChange(e) {
+    const nextTitle = e.target.value;
+    updateTodoById(item.id, todo => ({
+      ...todo,
+      title: nextTitle,
+    }));
+  }
 
-  const submitEdit = (e) => {
+  function submitEdit(e) {
     e.preventDefault();
     finishEdit();
-  };
+  }
+
+  React.useEffect(() => {
+    if (!editing) {
+      return
+    };
+
+    const el = inputRef.current;
+    
+    if (!el){
+      return
+    };
+
+    el.focus();
+    
+    const len = el.value.length;
+    
+    el.setSelectionRange(len, len);
+  }, [editing]);
 
   return (
     <li className={styles.item} id={item.id}>
@@ -55,13 +87,29 @@ function Item({ item, setTodos }) {
       ) : (
         <>
           <button className={styles.left} onClick={toggleComplete}>
-            <p className={`${styles.text} ${item.is_completed ? styles.completed : ""}`}>
+            <p
+              className={`${styles.text} ${item.is_completed ? styles.completed : ""
+                }`}
+            >
               {item.title}
             </p>
           </button>
+
           <div className={styles.right}>
-            <button className={styles.iconButton} onClick={startEdit} aria-label="Edit">Edit</button>
-            <button className={styles.iconButton} onClick={deleteTodo} aria-label="Delete">Delete</button>
+            <button
+              className={styles.iconButton}
+              onClick={startEdit}
+              aria-label="Edit"
+            >
+              Edit
+            </button>
+            <button
+              className={styles.iconButton}
+              onClick={deleteTodo}
+              aria-label="Delete"
+            >
+              Delete
+            </button>
           </div>
         </>
       )}

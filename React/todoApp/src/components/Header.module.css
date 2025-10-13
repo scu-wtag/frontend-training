@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #d7e9ff 0%, #ffffff 40%, #c9ffd1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

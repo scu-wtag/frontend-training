@@ -1,0 +1,12 @@
+.list {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+}
+
+.empty {
+  align-self: center;
+  opacity: 0.85;
+  color: var(--muted);
+  padding: 24px 0;
+}
