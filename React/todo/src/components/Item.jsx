@@ -20,7 +20,7 @@ function Item({ item, setTodos }) {
   function toggleComplete() {
     updateTodoById(item.id, todo => ({
       ...todo,
-      is_completed: !todo.is_completed,
+      isCompleted: !todo.isCompleted,
     }));
   }
 
