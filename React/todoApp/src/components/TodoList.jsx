@@ -1,8 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Item from "./Item.jsx";
 import styles from "./TodoList.module.css";
 
-export default function TodoList({ todos, setTodos }) {
+export default function TodoList() {
+  const todos = useSelector((state) => state.todos.items);
+
   if (!todos.length) {
     return (
       <div className={styles.empty}>
@@ -13,8 +16,8 @@ export default function TodoList({ todos, setTodos }) {
 
   return (
     <ol className={styles.list}>
-      {todos.map(item => (
-        <Item key={item.id} item={item} setTodos={setTodos} />
+      {todos.map((item) => (
+        <Item key={item.id} item={item} />
       ))}
     </ol>
   );
