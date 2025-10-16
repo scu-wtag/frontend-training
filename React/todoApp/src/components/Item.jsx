@@ -1,44 +1,52 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteTodo, toggleTodo, updateTitle } from "../features/todos/todosSlice.js";
 import styles from "./Item.module.css";
 
-function Item({ item, setTodos }) {
+export default function Item({ item }) {
+  const dispatch = useDispatch();
+
   const [editing, setEditing] = React.useState(false);
+
   const inputRef = React.useRef(null);
 
-  const toggleComplete = () => {
-    setTodos(prev =>
-      prev.map(t => (t.id === item.id ? { ...t, is_completed: !t.is_completed } : t))
-    );
-  };
+  function toggleComplete() {
+    dispatch(toggleTodo({ id: item.id }));
+  }
 
-  const deleteTodo = () => {
-    setTodos(prev => prev.filter(todo => todo.id !== item.id));
-  };
+  function remove() {
+    dispatch(deleteTodo({ id: item.id }));
+  }
 
-  const startEdit = () => setEditing(true);
+  function startEdit() {
+    setEditing(true);
+  }
 
   React.useEffect(() => {
     if (editing && inputRef.current) {
       inputRef.current.focus();
-      
+
       const len = inputRef.current.value.length;
-      
+
       inputRef.current.setSelectionRange(len, len);
     }
   }, [editing]);
 
-  const handleEditChange = (e) => {
+  function handleEditChange(e) {
     const text = e.target.value;
-    
-    setTodos(prev => prev.map(t => (t.id === item.id ? { ...t, title: text } : t)));
-  };
 
-  const finishEdit = () => setEditing(false);
+    dispatch(updateTitle({ id: item.id, title: text }));
+  }
 
-  const submitEdit = (e) => {
+  function finishEdit() {
+    setEditing(false);
+  }
+
+  function submitEdit(e) {
     e.preventDefault();
+
     finishEdit();
-  };
+  }
 
   return (
     <li className={styles.item} id={item.id}>
@@ -58,18 +66,22 @@ function Item({ item, setTodos }) {
       ) : (
         <>
           <button className={styles.left} onClick={toggleComplete}>
-            <p className={`${styles.text} ${item.is_completed ? styles.completed : ""}`}>
+            <p className={`${styles.text} ${item.isCompleted ? styles.completed : ""}`}>
               {item.title}
             </p>
           </button>
+
           <div className={styles.right}>
-            <button className={styles.iconButton} onClick={startEdit} aria-label="Edit">Edit</button>
-            <button className={styles.iconButton} onClick={deleteTodo} aria-label="Delete">Delete</button>
+            <button className={styles.iconButton} onClick={startEdit} aria-label="Edit">
+              Edit
+            </button>
+
+            <button className={styles.iconButton} onClick={remove} aria-label="Delete">
+              Delete
+            </button>
           </div>
         </>
       )}
     </li>
   );
 }
-
-export default Item;

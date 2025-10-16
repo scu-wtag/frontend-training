@@ -1,22 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todos/todosSlice";
 import styles from "./Form.module.css";
 
-export default function Form({ setTodos }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const value = e.target.todo.value.trim();
-    
-    if (!value) {
-      return
-    };
+export default function Form() {
+  const dispatch = useDispatch();
 
-    setTodos(prev => [
-      ...prev,
-      { id: crypto.randomUUID(), title: value, isCompleted: false }
-    ]);
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const value = e.target.todo.value.trim();
+
+    if (!value) {
+      return;
+    }
+
+    dispatch(addTodo({ title: value }));
 
     e.target.reset();
-  };
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -26,8 +28,10 @@ export default function Form({ setTodos }) {
           name="todo"
           id="todo"
           placeholder="Write your next task"
+          autoComplete="off"
         />
       </label>
+
       <button className={styles.button} type="submit">Add</button>
     </form>
   );
