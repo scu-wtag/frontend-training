@@ -3,7 +3,7 @@ import todosReducer from "../features/todos/todosSlice";
 
 function loadFromStorage() {
   try {
-    const raw = localStorage.getItem("todos_state");
+    const todos = localStorage.getItem("todos_state");
 
     if (!raw) {
       return undefined;
